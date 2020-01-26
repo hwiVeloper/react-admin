@@ -4,14 +4,30 @@ import {
   IconButton,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText,
   makeStyles
 } from "@material-ui/core";
-import { ChevronLeft, Inbox, Mail } from "@material-ui/icons";
+import {
+  AccountCircle,
+  ChevronLeft,
+  Dashboard,
+  Description,
+  People,
+  Settings
+} from "@material-ui/icons";
 import React from "react";
+import { NavLink } from "react-router-dom";
+import { Profile } from "./Profile";
 
 const drawerWidth = 240;
+
+const menus = [
+  { title: "Dashboard", path: "/dashboard" },
+  { title: "Users", path: "/users" },
+  { title: "Contents", path: "/contents" },
+  { title: "My Page", path: "/mypage" },
+  { title: "Settings", path: "/settings" }
+];
 
 export const LeftMenu = props => {
   const classes = useStyles();
@@ -33,23 +49,40 @@ export const LeftMenu = props => {
           </IconButton>
         </div>
         <Divider />
+        <Profile />
+        <Divider />
         <List>
-          {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <Inbox /> : <Mail />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
+          {menus.map((item, index) => (
+            <NavLink
+              to={item.path}
+              className={classes.drawerLink}
+              activeClassName={classes.drawerLinkActive}
+              key={index}
+            >
+              <ListItem button>
+                <div className={classes.listItemIcon}>
+                  {index === 0 ? (
+                    <Dashboard />
+                  ) : index === 1 ? (
+                    <People />
+                  ) : index === 2 ? (
+                    <Description />
+                  ) : index === 3 ? (
+                    <AccountCircle />
+                  ) : index === 4 ? (
+                    <Settings />
+                  ) : null}
+                </div>
+                <ListItemText primary={item.title} />
+                {/* {item.title} */}
+              </ListItem>
+            </NavLink>
           ))}
         </List>
         <Divider />
         <List>
-          {["All mail", "Trash", "Spam"].map((text, index) => (
+          {["Components"].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <Inbox /> : <Mail />}
-              </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
           ))}
@@ -73,5 +106,15 @@ const useStyles = makeStyles(theme => ({
     padding: "0 8px",
     ...theme.mixins.toolbar,
     justifyContent: "flex-end"
+  },
+  drawerLink: {
+    textDecoration: "none",
+    color: "inherit"
+  },
+  drawerLinkActive: {
+    color: theme.palette.primary.main
+  },
+  listItemIcon: {
+    marginRight: theme.spacing(2)
   }
 }));

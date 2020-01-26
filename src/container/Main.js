@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 
-import { Header } from "./Header";
-import { LeftMenu } from "./LeftMenu";
+import { Header } from "../components/layouts/Header";
+import { LeftMenu } from "../components/layouts/LeftMenu";
+import { Content } from "../components/layouts/Content";
 
-export default class Layout extends Component {
+export default class Main extends Component {
   state = {
     open: true
   };
@@ -20,10 +21,12 @@ export default class Layout extends Component {
 
   render() {
     const { open } = this.state;
+    const { children } = this.props;
     return (
       <>
-        <Header handleOpen={this.handleDrawerOpen} />
+        <Header open={open} handleOpen={this.handleDrawerOpen} />
         <LeftMenu open={open} handleClose={this.handleDrawerClose} />
+        <Content open={open} child={children} />
       </>
     );
   }
