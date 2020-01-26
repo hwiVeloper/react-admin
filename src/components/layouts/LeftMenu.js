@@ -79,14 +79,6 @@ export const LeftMenu = props => {
             </NavLink>
           ))}
         </List>
-        <Divider />
-        <List>
-          {["Components"].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
-        </List>
       </Drawer>
     </>
   );
