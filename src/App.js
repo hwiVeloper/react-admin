@@ -1,32 +1,28 @@
-import { createBrowserHistory } from "history";
-import { Provider } from "mobx-react";
-import { RouterStore, syncHistoryWithStore } from "mobx-react-router";
-import React from "react";
-import { Router } from "react-router";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core";
+import { inject, observer } from "mobx-react";
+import React, { Component } from "react";
 import "./App.css";
 import Routes from "./Routes";
-import store from "./store";
 
-const App = () => {
-  const browserHistory = createBrowserHistory();
-  const routingStore = new RouterStore();
-
-  const stores = {
-    store,
-    routing: routingStore
-  };
-
-  const history = syncHistoryWithStore(browserHistory, routingStore);
-
-  return (
-    <Provider {...stores}>
-      <Router history={history}>
+@inject(({ store }) => ({
+  settings: store.settings
+}))
+@observer
+class App extends Component {
+  render() {
+    const theme = createMuiTheme({
+      palette: {
+        type: this.props.settings.theme
+      }
+    });
+    return (
+      <ThemeProvider theme={theme}>
         <div className="App">
           <Routes />
         </div>
-      </Router>
-    </Provider>
-  );
-};
+      </ThemeProvider>
+    );
+  }
+}
 
 export default App;

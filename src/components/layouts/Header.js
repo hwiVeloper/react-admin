@@ -35,7 +35,7 @@ export const Header = props => {
             variant="h6"
             noWrap
           >
-            React Admin
+            리액트 어드민
           </Typography>
         </Toolbar>
       </AppBar>

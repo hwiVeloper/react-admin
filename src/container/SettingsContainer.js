@@ -1,11 +1,22 @@
+import { inject, observer } from "mobx-react";
 import React, { Component } from "react";
+import { SettingsTheme } from "../components/Settings/SettingsTheme";
 
-export default class SettingsContainer extends Component {
+@inject(({ store }) => ({
+  settings: store.settings
+}))
+@observer
+class SettingsContainer extends Component {
   render() {
     return (
       <div>
-        <h1>Settings</h1>
+        <SettingsTheme
+          theme={this.props.settings.theme}
+          themeChange={this.props.settings.toggleTheme}
+        />
       </div>
     );
   }
 }
+
+export default SettingsContainer;

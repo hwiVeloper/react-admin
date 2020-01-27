@@ -23,11 +23,11 @@ const drawerWidth = 240;
 
 // You can add menu which you need with title, path and icon
 const menus = [
-  { title: "Dashboard", path: "/dashboard", icon: <Dashboard /> },
-  { title: "Users", path: "/users", icon: <People /> },
-  { title: "Contents", path: "/contents", icon: <Description /> },
-  { title: "My Page", path: "/mypage", icon: <AccountCircle /> },
-  { title: "Settings", path: "/settings", icon: <Settings /> }
+  { title: "대시보드", path: "/dashboard", icon: <Dashboard /> },
+  { title: "사용자", path: "/users", icon: <People /> },
+  { title: "컨텐츠", path: "/contents", icon: <Description /> },
+  { title: "마이페이지", path: "/mypage", icon: <AccountCircle /> },
+  { title: "설정", path: "/settings", icon: <Settings /> }
 ];
 
 export const LeftMenu = props => {

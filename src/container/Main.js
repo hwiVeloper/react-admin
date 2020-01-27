@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Header } from "../components/layouts/Header";
 import { LeftMenu } from "../components/layouts/LeftMenu";
 import { Content } from "../components/layouts/Content";
+import { Footer } from "../components/layouts/Footer";
 
 export default class Main extends Component {
   state = {
@@ -27,6 +28,7 @@ export default class Main extends Component {
         <Header open={open} handleOpen={this.handleDrawerOpen} />
         <LeftMenu open={open} handleClose={this.handleDrawerClose} />
         <Content open={open} child={children} />
+        <Footer open={open} />
       </>
     );
   }

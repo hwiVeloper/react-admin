@@ -1,12 +1,12 @@
 import { Grid } from "@material-ui/core";
 import { Assignment, Check, Money, People } from "@material-ui/icons";
-import React, { Component } from "react";
-import { DashboardCard } from "../components/DashboardCard";
-import { DashboardIssueChart } from "../components/DashboardIssueChart";
-import { DashboardEmployeesChart } from "../components/DashboardEmployeesChart";
 import { inject } from "mobx-react";
-import { DashboardIssueSheet } from "../components/DashboardIssueSheet";
-import { DashboardEmployeeSheet } from "../components/DashboardEmployeeSheet";
+import React, { Component } from "react";
+import { DashboardCard } from "../components/Dashboard/DashboardCard";
+import { DashboardEmployeesChart } from "../components/Dashboard/DashboardEmployeesChart";
+import { DashboardEmployeeSheet } from "../components/Dashboard/DashboardEmployeeSheet";
+import { DashboardIssueChart } from "../components/Dashboard/DashboardIssueChart";
+import { DashboardIssueSheet } from "../components/Dashboard/DashboardIssueSheet";
 
 @inject(({ store }) => ({
   dashboard: store.dashboard
