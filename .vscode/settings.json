@@ -1,5 +1,6 @@
 {
   "editor.formatOnSave": true,
   "autoimport.filesToScan": "./src/**/*.{js,jsx,ts,tsx}",
-  "autoimport.autoComplete": true
+  "autoimport.autoComplete": true,
+  "javascript.implicitProjectConfig.experimentalDecorators": true
 }

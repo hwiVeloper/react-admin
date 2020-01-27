@@ -7,11 +7,17 @@ import {
   ValueAxis,
   BarSeries,
   Title,
-  Legend
+  Legend,
+  Tooltip
 } from "@devexpress/dx-react-chart-material-ui";
-import { Animation, Stack } from "@devexpress/dx-react-chart";
+import {
+  Animation,
+  Stack,
+  EventTracker,
+  HoverState
+} from "@devexpress/dx-react-chart";
 
-export const DashboardIssueChart = () => {
+export const DashboardIssueChart = props => {
   const chartData = [
     { ym: "2019/02", todo: 5, done: 3, notdone: 2 },
     { ym: "2019/03", todo: 1, done: 1, notdone: 0 },
@@ -57,32 +63,20 @@ export const DashboardIssueChart = () => {
           <ArgumentAxis />
           <ValueAxis />
 
-          <BarSeries
-            name="발생"
-            valueField="todo"
-            argumentField="ym"
-            color="#0000ff"
-          />
-          <BarSeries
-            name="해결"
-            valueField="done"
-            argumentField="ym"
-            color="#00ff00"
-          />
-          <BarSeries
-            name="미해결"
-            valueField="notdone"
-            argumentField="ym"
-            color="#ff0000"
-          />
-          <Animation />
+          <BarSeries name="발생" valueField="todo" argumentField="ym" />
+          <BarSeries name="해결" valueField="done" argumentField="ym" />
+          <BarSeries name="미해결" valueField="notdone" argumentField="ym" />
           <Legend
             position="bottom"
             rootComponent={Root}
             labelComponent={Label}
           />
-          <Title text="이슈 관리 현황" />
+          <Title text="📌 이슈 관리 현황" />
           <Stack />
+          <Animation />
+          <EventTracker />
+          <HoverState hover={props.target} onHoverChange={props.targetChange} />
+          <Tooltip />
         </Chart>
       </CardContent>
     </Card>

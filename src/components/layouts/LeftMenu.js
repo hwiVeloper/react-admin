@@ -21,12 +21,13 @@ import { Profile } from "./Profile";
 
 const drawerWidth = 240;
 
+// You can add menu which you need with title, path and icon
 const menus = [
-  { title: "Dashboard", path: "/dashboard" },
-  { title: "Users", path: "/users" },
-  { title: "Contents", path: "/contents" },
-  { title: "My Page", path: "/mypage" },
-  { title: "Settings", path: "/settings" }
+  { title: "Dashboard", path: "/dashboard", icon: <Dashboard /> },
+  { title: "Users", path: "/users", icon: <People /> },
+  { title: "Contents", path: "/contents", icon: <Description /> },
+  { title: "My Page", path: "/mypage", icon: <AccountCircle /> },
+  { title: "Settings", path: "/settings", icon: <Settings /> }
 ];
 
 export const LeftMenu = props => {
@@ -60,21 +61,8 @@ export const LeftMenu = props => {
               key={index}
             >
               <ListItem button>
-                <div className={classes.listItemIcon}>
-                  {index === 0 ? (
-                    <Dashboard />
-                  ) : index === 1 ? (
-                    <People />
-                  ) : index === 2 ? (
-                    <Description />
-                  ) : index === 3 ? (
-                    <AccountCircle />
-                  ) : index === 4 ? (
-                    <Settings />
-                  ) : null}
-                </div>
+                <div className={classes.listItemIcon}>{item.icon}</div>
                 <ListItemText primary={item.title} />
-                {/* {item.title} */}
               </ListItem>
             </NavLink>
           ))}
