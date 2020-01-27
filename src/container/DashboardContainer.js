@@ -5,6 +5,8 @@ import { DashboardCard } from "../components/DashboardCard";
 import { DashboardIssueChart } from "../components/DashboardIssueChart";
 import { DashboardEmployeesChart } from "../components/DashboardEmployeesChart";
 import { inject } from "mobx-react";
+import { DashboardIssueSheet } from "../components/DashboardIssueSheet";
+import { DashboardEmployeeSheet } from "../components/DashboardEmployeeSheet";
 
 @inject(({ store }) => ({
   dashboard: store.dashboard
@@ -66,6 +68,12 @@ class DashboardContainer extends Component {
               target={employeesChartTarget}
               targetChange={this._handleChangeEmployeesTarget}
             />
+          </Grid>
+          <Grid item xs={6}>
+            <DashboardIssueSheet />
+          </Grid>
+          <Grid item xs={6}>
+            <DashboardEmployeeSheet />
           </Grid>
         </Grid>
       </>
