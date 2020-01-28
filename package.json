@@ -2,6 +2,7 @@
   "name": "react-admin",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://hwiveloper.github.io/react-admin",
   "dependencies": {
     "@devexpress/dx-react-chart": "^2.4.0",
     "@devexpress/dx-react-chart-material-ui": "^2.4.0",
@@ -28,7 +29,8 @@
   "scripts": {
     "start": "react-app-rewired start",
     "build": "react-app-rewired build",
-    "test": "react-app-rewired test"
+    "test": "react-app-rewired test",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
