@@ -5,7 +5,9 @@ import {
   List,
   ListItem,
   ListItemText,
-  makeStyles
+  makeStyles,
+  useTheme,
+  useMediaQuery
 } from "@material-ui/core";
 import {
   AccountCircle,
@@ -15,7 +17,7 @@ import {
   People,
   Settings
 } from "@material-ui/icons";
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Profile } from "./Profile";
 
@@ -33,40 +35,41 @@ const menus = [
 export const LeftMenu = props => {
   const classes = useStyles();
 
+  const theme = useTheme();
+  const isDesktop = useMediaQuery(theme.breakpoints.up("lg"), {
+    defaultMatches: true
+  });
+
+  const shouldOpenSidebar = isDesktop ? true : props.open;
+
   return (
     <>
       <Drawer
-        className={classes.drawer}
-        variant="persistent"
         anchor="left"
-        open={props.open}
-        classes={{
-          paper: classes.drawerPaper
-        }}
+        classes={{ paper: classes.drawer }}
+        onClose={props.handleClose}
+        open={shouldOpenSidebar}
+        variant={isDesktop ? "persistent" : "temporary"}
       >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={props.handleClose}>
-            <ChevronLeft />
-          </IconButton>
+        <div>
+          <Profile />
+          <Divider />
+          <List>
+            {menus.map((item, index) => (
+              <NavLink
+                to={item.path}
+                className={classes.drawerLink}
+                activeClassName={classes.drawerLinkActive}
+                key={index}
+              >
+                <ListItem button>
+                  <div className={classes.listItemIcon}>{item.icon}</div>
+                  <ListItemText primary={item.title} />
+                </ListItem>
+              </NavLink>
+            ))}
+          </List>
         </div>
-        <Divider />
-        <Profile />
-        <Divider />
-        <List>
-          {menus.map((item, index) => (
-            <NavLink
-              to={item.path}
-              className={classes.drawerLink}
-              activeClassName={classes.drawerLinkActive}
-              key={index}
-            >
-              <ListItem button>
-                <div className={classes.listItemIcon}>{item.icon}</div>
-                <ListItemText primary={item.title} />
-              </ListItem>
-            </NavLink>
-          ))}
-        </List>
       </Drawer>
     </>
   );
@@ -75,17 +78,14 @@ export const LeftMenu = props => {
 const useStyles = makeStyles(theme => ({
   drawer: {
     width: drawerWidth,
+    [theme.breakpoints.up("lg")]: {
+      marginTop: 64,
+      height: "calc(100% - 64px)"
+    },
     flexShrink: 0
   },
   drawerPaper: {
     width: drawerWidth
-  },
-  drawerHeader: {
-    display: "flex",
-    alignItems: "center",
-    padding: "0 8px",
-    ...theme.mixins.toolbar,
-    justifyContent: "flex-end"
   },
   drawerLink: {
     textDecoration: "none",
@@ -96,5 +96,12 @@ const useStyles = makeStyles(theme => ({
   },
   listItemIcon: {
     marginRight: theme.spacing(2)
+  },
+  root: {
+    backgroundColor: theme.palette.white,
+    display: "flex",
+    flexDirection: "column",
+    height: "100%",
+    padding: theme.spacing(2)
   }
 }));

@@ -26,11 +26,12 @@ const useStyles = makeStyles(theme => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-    marginLeft: 0,
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    }),
+    [theme.breakpoints.down("md")]: {
+      marginLeft: 0
+    },
+    [theme.breakpoints.up("lg")]: {
+      marginLeft: drawerWidth
+    },
     overflow: "auto"
   },
   contentHeader: {
@@ -39,12 +40,5 @@ const useStyles = makeStyles(theme => ({
     justifyContent: "flex-end",
     padding: "0 8px",
     ...theme.mixins.toolbar
-  },
-  contentShift: {
-    transition: theme.transitions.create("margin", {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    }),
-    marginLeft: drawerWidth
   }
 }));

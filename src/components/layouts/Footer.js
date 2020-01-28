@@ -1,13 +1,11 @@
-import { Link, Typography } from "@material-ui/core";
+import { Link, Typography, makeStyles } from "@material-ui/core";
 import React from "react";
 
 export const Footer = props => {
-  // const classes = useStyles();
+  const classes = useStyles();
 
   return (
-    <div
-    // className={clsx(classes.footer, { [classes.footerShift]: props.open })}
-    >
+    <div className={classes.footer}>
       <Typography variant="body1">
         &copy;{" "}
         <Link
@@ -25,3 +23,10 @@ export const Footer = props => {
     </div>
   );
 };
+
+const useStyles = makeStyles(theme => ({
+  footer: {
+    paddingTop: theme.spacing(3),
+    paddingBottom: theme.spacing(2)
+  }
+}));

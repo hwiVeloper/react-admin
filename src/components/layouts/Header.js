@@ -4,7 +4,8 @@ import {
   Toolbar,
   Typography,
   IconButton,
-  makeStyles
+  makeStyles,
+  Hidden
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import clsx from "clsx";
@@ -14,19 +15,18 @@ export const Header = props => {
   const classes = useStyles();
   return (
     <>
-      <AppBar
-        position="fixed"
-        className={clsx(classes.appBar, { [classes.appBarShift]: props.open })}
-      >
+      <AppBar position="fixed" className={classes.appBar}>
         <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="Open drawer"
-            onClick={props.handleOpen}
-            edge="start"
-          >
-            <MenuIcon />
-          </IconButton>
+          <Hidden lgUp>
+            <IconButton
+              color="inherit"
+              aria-label="Open drawer"
+              onClick={props.handleOpen}
+              edge="start"
+            >
+              <MenuIcon />
+            </IconButton>
+          </Hidden>
           <Typography
             className={classes.logo}
             component={Link}
@@ -43,7 +43,7 @@ export const Header = props => {
   );
 };
 
-const drawerWidth = 240;
+// const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   logo: {
     textDecoration: "none"
@@ -52,14 +52,6 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create(["margin", "width"], {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
-    })
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
     })
   }
 }));

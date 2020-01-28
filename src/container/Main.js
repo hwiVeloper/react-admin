@@ -3,10 +3,11 @@ import React, { Component } from "react";
 import { Header } from "../components/layouts/Header";
 import { LeftMenu } from "../components/layouts/LeftMenu";
 import { Content } from "../components/layouts/Content";
+import { Hidden, useMediaQuery } from "@material-ui/core";
 
 export default class Main extends Component {
   state = {
-    open: true
+    open: false
   };
 
   handleDrawerOpen = () => {
@@ -22,6 +23,7 @@ export default class Main extends Component {
   render() {
     const { open } = this.state;
     const { children } = this.props;
+
     return (
       <>
         <Header open={open} handleOpen={this.handleDrawerOpen} />
