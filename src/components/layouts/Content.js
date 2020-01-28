@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
 import clsx from "clsx";
+import { Footer } from "./Footer";
 
 export const Content = props => {
   const classes = useStyles();
@@ -15,6 +16,7 @@ export const Content = props => {
     >
       <div className={classes.contentHeader} />
       {child}
+      <Footer />
     </div>
   );
 };
@@ -29,7 +31,7 @@ const useStyles = makeStyles(theme => ({
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen
     }),
-    overflow: "scroll"
+    overflow: "auto"
   },
   contentHeader: {
     display: "flex",

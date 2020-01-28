@@ -1,13 +1,12 @@
-import { Link, makeStyles, Typography } from "@material-ui/core";
+import { Link, Typography } from "@material-ui/core";
 import React from "react";
-import clsx from "clsx";
 
 export const Footer = props => {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   return (
     <div
-      className={clsx(classes.footer, { [classes.footerShift]: props.open })}
+    // className={clsx(classes.footer, { [classes.footerShift]: props.open })}
     >
       <Typography variant="body1">
         &copy;{" "}
@@ -26,22 +25,3 @@ export const Footer = props => {
     </div>
   );
 };
-
-const drawerWidth = 240;
-const useStyles = makeStyles(theme => ({
-  footer: {
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen
-    }),
-    padding: theme.spacing(3)
-  },
-  footerShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen
-    })
-  }
-}));
