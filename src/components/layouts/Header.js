@@ -1,14 +1,13 @@
-import React from "react";
 import {
   AppBar,
-  Toolbar,
-  Typography,
+  Hidden,
   IconButton,
   makeStyles,
-  Hidden
+  Toolbar,
+  Typography
 } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
-import clsx from "clsx";
+import React from "react";
 import { Link } from "react-router-dom";
 
 export const Header = props => {

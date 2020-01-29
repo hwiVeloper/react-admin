@@ -1,9 +1,7 @@
 import React, { Component } from "react";
-
+import { Content } from "../components/layouts/Content";
 import { Header } from "../components/layouts/Header";
 import { LeftMenu } from "../components/layouts/LeftMenu";
-import { Content } from "../components/layouts/Content";
-import { Hidden, useMediaQuery } from "@material-ui/core";
 
 export default class Main extends Component {
   state = {

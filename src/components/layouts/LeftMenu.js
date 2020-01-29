@@ -1,23 +1,21 @@
 import {
   Divider,
   Drawer,
-  IconButton,
   List,
   ListItem,
   ListItemText,
   makeStyles,
-  useTheme,
-  useMediaQuery
+  useMediaQuery,
+  useTheme
 } from "@material-ui/core";
 import {
   AccountCircle,
-  ChevronLeft,
   Dashboard,
   Description,
   People,
   Settings
 } from "@material-ui/icons";
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { Profile } from "./Profile";
 
