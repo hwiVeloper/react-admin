@@ -1,11 +1,24 @@
+import { inject } from "mobx-react";
 import React, { Component } from "react";
+import { MyInfo } from "../components/Mypage/MyInfo";
 
-export default class MypageContainer extends Component {
+@inject(({ store }) => ({
+  mypage: store.mypage
+}))
+class MypageContainer extends Component {
   render() {
+    const { mypage } = this.props;
     return (
       <div>
-        <h1>My Page</h1>
+        <MyInfo
+          avatar={mypage.avatar}
+          name={mypage.name}
+          role={mypage.role}
+          birthday={mypage.birthday}
+        />
       </div>
     );
   }
 }
+
+export default MypageContainer;
