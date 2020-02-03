@@ -16,7 +16,7 @@ class MypageStore {
   role = "Backend Developer";
 
   @observable
-  birthday = "1990.08.17";
+  birthday = "1990-08-17";
 
   @action
   changeName = (target = "") => {

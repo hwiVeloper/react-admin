@@ -15,8 +15,8 @@ export const MyInfo = props => {
     <div>
       <Card>
         <CardContent>
-          <Grid container>
-            <Grid item xs={12} lg={2} justify="center">
+          <Grid container justify="center">
+            <Grid item xs={12} lg={2}>
               <Avatar
                 alt="Profile Image"
                 className={classes.profileImg}
@@ -25,7 +25,7 @@ export const MyInfo = props => {
             </Grid>
             <Grid item xs={12} lg={10}>
               <Grid item>
-                <TextField label="이름" defaultValue={props.name} />
+                <TextField label="ID" defaultValue={props.name} />
               </Grid>
               <Grid item>
                 <TextField label="직무" defaultValue={props.role} />
