@@ -10,7 +10,10 @@ class MypageStore {
   avatar = "https://github.com/hwiveloper.png";
 
   @observable
-  name = "hwiveloper";
+  id = "hwiveloper";
+
+  @observable
+  name = "이종휘";
 
   @observable
   role = "Backend Developer";
@@ -20,7 +23,7 @@ class MypageStore {
 
   @action
   changeName = (target = "") => {
-    this.name = target;
+    this.id = target;
   };
 
   @action
