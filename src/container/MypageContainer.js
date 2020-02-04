@@ -9,9 +9,9 @@ class MypageContainer extends Component {
   render() {
     const { mypage } = this.props;
     return (
-      <div>
+      <>
         <MyInfo info={mypage} />
-      </div>
+      </>
     );
   }
 }

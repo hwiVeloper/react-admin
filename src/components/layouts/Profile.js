@@ -14,9 +14,7 @@ export const Profile = () => {
       <Avatar
         alt="Profile Image"
         className={classes.profileImg}
-        // component={RouterLink}
         src={user.avatar}
-        // to="/settings"
       />
       <Typography className={classes.profileName} variant="h4">
         {user.name}
