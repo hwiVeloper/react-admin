@@ -27,7 +27,7 @@ class DashboardContainer extends Component {
         <Grid container spacing={3}>
           <Grid item xs={12} lg={3}>
             <DashboardCard
-              title="자산"
+              title="예산"
               value="￦ 24,000,000"
               color="primary"
               icon={<Money />}

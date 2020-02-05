@@ -9,14 +9,9 @@ class MypageContainer extends Component {
   render() {
     const { mypage } = this.props;
     return (
-      <div>
-        <MyInfo
-          avatar={mypage.avatar}
-          name={mypage.name}
-          role={mypage.role}
-          birthday={mypage.birthday}
-        />
-      </div>
+      <>
+        <MyInfo info={mypage} />
+      </>
     );
   }
 }
