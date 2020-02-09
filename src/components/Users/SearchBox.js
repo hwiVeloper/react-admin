@@ -43,7 +43,8 @@ export const SearchBox = () => {
 const useStyles = makeStyles(theme => ({
   searchBox: {
     display: "flex",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+    marginBottom: theme.spacing(2)
   },
   excelButton: {
     backgroundColor: "#1d8f2a",
