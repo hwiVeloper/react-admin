@@ -15,7 +15,7 @@
     "axios": "^0.19.2",
     "clsx": "^1.0.4",
     "customize-cra": "^0.9.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "history": "^4.10.1",
     "mobx": "^5.15.2",
     "mobx-react": "^6.1.5",
